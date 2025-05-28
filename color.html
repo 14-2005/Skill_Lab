@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="colorgenerator.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Random Color Generator</h1>
+    <button id="ColorButton">Generate Color</button>
+    <p id="ColorCode">Click the button to get a color</p>
+    </div>
+    <script>
+        function getcolor(){
+            const letter = "0123456789ABCDEF";
+            let color = "#";
+            for(let i=0;i<6;i++){
+                color += letter[Math.floor(Math.random()*16)];
+            }
+            return color;
+        }
+        document.getElementById("ColorButton").addEventListener("click",function(){
+            const newColor = getcolor();
+            document.body.style.backgroundColor = newColor;
+            document.getElementById("ColorCode").textContent = 'Color is ' + newColor;
+        })
+    </script>
+</body>
+</html>
